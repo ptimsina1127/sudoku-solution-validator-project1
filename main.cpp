@@ -1,8 +1,6 @@
 #include <iostream>
 #include <thread>
 
-
-using namespace std::chrono;
 using namespace std;
 bool col = true, row = true, subgrid = true; 
 
@@ -72,8 +70,6 @@ bool subgrid_check(int array[][9]){
     cout<<"finished3 ";
     return true;
 }
-
-
 
 int main (){
     int sudoku[9][9] = {
