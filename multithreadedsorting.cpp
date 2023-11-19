@@ -22,35 +22,31 @@ void sorting_elements(int start,int end){
 }
 
 void merge_elements(int start1,int end1){
-    cout<<"here";
     int start2 = end1+1;
     int end2 = vect_list.size()-1;
-    
-    while((start1 != end1 + 1)||(start2 != end2 + 1)){
-        if(start1 < start2){
-            sorted_list.push_back(vect_list[start1]);
-            ++start1;
+    int i = start1; 
+    int j = start2;
+    while(i <= end1 && j <=end2){
+        if(vect_list[i] < vect_list[j]){
+            sorted_list.push_back(vect_list[i]);
+            ++i;
         }
         else{
-            sorted_list.push_back(vect_list[start2]);
-            ++start2;
+            sorted_list.push_back(vect_list[j]);
+            ++j;
         }
     }
 
-    if(start1 == (end1 + 1)){
-        for (int i = start2 ; i <= end2;++i){
-            sorted_list.push_back(vect_list[i]);
-        }
-    }
-    else if(start2 == (end2 + 1)){
-        for (int i = start1 ; i <= end1;++i){
-            sorted_list.push_back(vect_list[i]);
-        }
+    while (i <= end1){
+        sorted_list.push_back(vect_list[i]);
+        ++i;
     }
     
-    else{
-
+    while (j <= end2){
+        sorted_list.push_back(vect_list[j]);
+        ++j;
     }
+    
 }
 
 void print_elements(){
@@ -75,10 +71,11 @@ t2.join();
 print_elements();
 merge_elements(0,(n/2)-1);
 
-  for (int i = 0 ; i < sorted_list.size(); ++i){
+cout<<"After Merging :"<<endl;
+
+for (int i = 0 ; i < sorted_list.size(); ++i){
     cout<<sorted_list[i]<<endl;
     }
-
 
 return 0;
 }
